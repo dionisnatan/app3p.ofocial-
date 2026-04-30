@@ -5,79 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instagran App3P Oficial — Páginas que Vendem</title>
   <meta name="description" content="Criamos páginas profissionais que transformam visitantes em clientes. Design premium, carregamento ultrarrápido e foco total em conversão." />
+  
+  <!-- Open Graph Tags (Redes Sociais e WhatsApp) -->
+  <meta property="og:title" content="Instagran App3P Oficial — Páginas que Vendem" />
+  <meta property="og:description" content="Criamos páginas profissionais que transformam visitantes em clientes. Design premium, carregamento ultrarrápido e foco total em conversão." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://i.imgur.com/8Q5Z2zM.png" /> <!-- Placeholder de imagem genérica premium -->
+  <meta property="og:url" content="https://app3poficial.com" />
+  
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <style>
     /* =============================================
-       TOKENS GLOBAIS
+       TOKENS GLOBAIS - REDESIGN TECH PREMIUM
     ============================================= */
     :root {
-      --black:        #080808;
-      --black-soft:   #0f0f0f;
-      --black-card:   #131313;
-      --black-border: #222222;
-      --gold:         #C9A84C;
-      --gold-light:   #F0D68A;
-      --gold-dark:    #8A6420;
-      --gold-glow:    rgba(201,168,76,0.22);
+      --bg-dark:      #05050A; /* Deep tech navy/black */
+      --bg-card:      rgba(255, 255, 255, 0.03);
+      --border-card:  rgba(255, 255, 255, 0.08);
+      --gold:         #FFD700;
+      --gold-light:   #FFF8CC;
+      --amber:        #FF8C00;
       --white:        #FFFFFF;
-      --gray-muted:   #807870;
-      --gray-light:   #C8C4BC;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'Space Grotesk', 'DM Sans', sans-serif;
+      --gray-muted:   #9CA3AF;
+      --font-display: 'Inter', sans-serif;
+      --font-body:    'Space Grotesk', sans-serif;
       --radius-sm:    6px;
-      --radius-md:    14px;
-      --radius-lg:    22px;
-      --radius-xl:    32px;
+      --radius-md:    12px;
+      --radius-lg:    16px;
+      --radius-xl:    24px;
       --radius-pill:  999px;
-      --transition:   0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition:   0.3s ease;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--black);
+      background: var(--bg-dark);
       color: var(--white);
       font-family: var(--font-body);
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
     /* =============================================
-       PARTÍCULAS FLUTUANTES
+       FUNDO FOTOGRÁFICO REALISTA (PARALLAX)
     ============================================= */
-    .particles-bg {
+    .bg-photo-parallax {
       position: fixed;
       inset: 0;
-      pointer-events: none;
       z-index: 0;
-      overflow: hidden;
+      pointer-events: none;
     }
 
-    .particle {
+    .bg-photo-parallax img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      opacity: 0.4;
+      transform: scale(1.05); /* Margem para não cortar no scroll caso adicione parallax js */
+    }
+
+    .bg-overlay {
       position: absolute;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      background: var(--gold);
-      opacity: 0;
-      animation: float-particle linear infinite;
-    }
-
-    @keyframes float-particle {
-      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-      10%  { opacity: 0.6; }
-      90%  { opacity: 0.2; }
-      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(5,5,10,0.4) 0%, rgba(5,5,10,0.95) 60%, var(--bg-dark) 100%);
     }
 
     /* =============================================
@@ -120,29 +122,31 @@
 
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(30px, 4vw, 50px);
-      font-weight: 900;
-      line-height: 1.15;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
       color: var(--white);
-      margin-bottom: 18px;
+      margin-bottom: 24px;
     }
 
     .section-subtitle {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 300;
       color: var(--gray-muted);
-      max-width: 560px;
-      margin: 0 auto 60px;
-      line-height: 1.85;
+      max-width: 600px;
+      margin: 0 auto 72px;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
     }
 
-    /* Botão primário dourado premium */
+    /* Botão primário premium */
     .btn-gold {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #C9A84C 0%, #F0D68A 45%, #C9A84C 100%);
-      background-size: 200% 200%;
+      gap: 12px;
+      background: linear-gradient(135deg, #e3c562 0%, #fff6ca 50%, #cca32d 100%);
+      background-size: 200% auto;
       color: #080808;
       font-family: var(--font-body);
       font-size: 15px;
@@ -221,13 +225,18 @@
       box-shadow: 0 0 12px rgba(201,168,76,0.5);
     }
 
-    /* Reveal animation */
+    /* Reveal animation premium */
     .reveal {
       opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
+      transform: translateY(40px) scale(0.98);
+      filter: blur(8px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+      filter: blur(0);
+    }
 
     /* =============================================
        NAVBAR
@@ -347,6 +356,7 @@
       position: relative;
       z-index: 2;
       max-width: 860px;
+      margin: 0 auto;
     }
 
     .hero-badge {
@@ -378,39 +388,33 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(40px, 7vw, 82px);
-      font-weight: 900;
-      line-height: 1.06;
+      font-size: clamp(48px, 8vw, 92px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
       color: var(--white);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       animation: fadeUp 1s 0.1s ease both;
-      text-shadow: 0 2px 40px rgba(0,0,0,0.8);
     }
 
     .hero-title em {
       font-style: normal;
-      color: var(--gold);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--amber) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       position: relative;
       display: inline-block;
-    }
-
-    .hero-title em::after {
-      content: '';
-      position: absolute;
-      bottom: -6px; left: 0;
-      width: 100%; height: 3px;
-      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
-      border-radius: 2px;
-      box-shadow: 0 0 16px rgba(201,168,76,0.6);
+      font-weight: 900;
     }
 
     .hero-sub {
-      font-size: clamp(16px, 2.2vw, 21px);
-      font-weight: 300;
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 400;
       color: var(--gray-muted);
-      max-width: 600px;
+      max-width: 680px;
       margin: 0 auto 56px;
-      line-height: 1.85;
+      line-height: 1.6;
       animation: fadeUp 1s 0.2s ease both;
     }
 
@@ -566,101 +570,115 @@
       z-index: 2;
     }
 
-    .benefits-grid {
+    .bento-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 240px;
+      gap: 24px;
       text-align: left;
-      margin-top: 12px;
+      margin-top: 40px;
     }
 
-    .benefit-card {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.06);
+    .bento-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
       border-radius: var(--radius-xl);
-      padding: 40px 32px;
+      padding: 32px;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
       backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Borda gradiente animada no hover */
-    .benefit-card::before {
-      content: '';
+    .bento-item:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 215, 0, 0.3);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4), inset 0 0 40px rgba(255, 215, 0, 0.05);
+    }
+
+    .bento-main {
+      grid-column: span 2;
+      grid-row: span 2;
+      padding: 0;
+    }
+
+    .bento-main .bento-content {
+      padding: 40px;
       position: absolute;
-      inset: -1px;
-      border-radius: calc(var(--radius-xl) + 1px);
-      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: -1;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 2;
+      background: linear-gradient(to bottom, rgba(5,5,10,0.85) 0%, rgba(5,5,10,0.4) 50%, rgba(5,5,10,0.1) 100%);
+      display: flex;
+      flex-direction: column;
     }
 
-    .benefit-card::after {
-      content: '';
+    .bento-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       position: absolute;
       inset: 0;
-      border-radius: var(--radius-xl);
-      background: rgba(201,168,76,0.04);
-      opacity: 0;
-      transition: opacity 0.4s;
+      z-index: 0;
+      opacity: 0.8;
+      transition: transform 0.8s ease;
     }
 
-    .benefit-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.3);
-      border-color: transparent;
+    .bento-main:hover img {
+      transform: scale(1.03);
     }
 
-    .benefit-card:hover::before { opacity: 1; }
-    .benefit-card:hover::after { opacity: 1; }
-
-    /* Brilho no topo */
-    .benefit-card .card-shine {
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
-      opacity: 0;
-      transition: opacity 0.4s;
+    .bento-wide {
+      grid-column: span 3;
+      grid-row: span 1;
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+      padding: 30px 40px;
     }
-    .benefit-card:hover .card-shine { opacity: 1; }
 
-    .benefit-icon {
-      width: 56px; height: 56px;
+    .bento-icon {
+      width: 52px; height: 52px;
       border-radius: var(--radius-md);
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(255, 215, 0, 0.08);
+      border: 1px solid rgba(255, 215, 0, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       position: relative;
       z-index: 1;
       transition: var(--transition);
+      flex-shrink: 0;
     }
 
-    .benefit-card:hover .benefit-icon {
-      background: rgba(201,168,76,0.2);
-      box-shadow: 0 0 24px rgba(201,168,76,0.3);
+    .bento-item:hover .bento-icon {
+      background: rgba(255, 215, 0, 0.15);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
     }
 
-    .benefit-icon svg { width: 26px; height: 26px; }
+    .bento-icon svg { width: 24px; height: 24px; color: var(--gold); }
 
-    .benefit-title {
+    .bento-title {
       font-family: var(--font-display);
-      font-size: 21px;
+      font-size: 22px;
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       position: relative; z-index: 1;
+      line-height: 1.2;
     }
 
-    .benefit-text {
-      font-size: 14px;
-      font-weight: 300;
+    .bento-main .bento-title {
+      font-size: 32px;
+    }
+
+    .bento-text {
+      font-size: 15px;
+      font-weight: 400;
       color: var(--gray-muted);
-      line-height: 1.8;
+      line-height: 1.7;
       position: relative; z-index: 1;
     }
 
@@ -701,8 +719,8 @@
     }
 
     .project-card {
-      background: rgba(255,255,255,0.022);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
       border-radius: var(--radius-xl);
       overflow: hidden;
       transition: var(--transition);
@@ -710,9 +728,9 @@
     }
 
     .project-card:hover {
-      border-color: rgba(201,168,76,0.35);
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(201,168,76,0.08);
+      transform: translateY(-8px);
+      border-color: rgba(255, 215, 0, 0.3);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4), inset 0 0 40px rgba(255, 215, 0, 0.05);
     }
 
     .project-thumb {
@@ -893,14 +911,19 @@
     }
 
     .price-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(201,168,76,0.3);
+      background: linear-gradient(rgba(5,5,10,0.85), rgba(5,5,10,0.95)), url('assets/glass_texture_1777506548382.png') center/cover;
+      border: 1px solid rgba(255, 215, 0, 0.15);
       border-radius: var(--radius-xl);
       padding: 52px 48px;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 0 80px rgba(201,168,76,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+      box-shadow: 0 0 80px rgba(0,0,0,0.5);
+      transition: var(--transition);
+    }
+
+    .price-card:hover {
+      border-color: rgba(255, 215, 0, 0.3);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4), inset 0 0 40px rgba(255, 215, 0, 0.05);
     }
 
     .price-card::before {
@@ -1007,8 +1030,8 @@
     }
 
     .testimonial-card {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
       border-radius: var(--radius-xl);
       padding: 36px 32px;
       transition: var(--transition);
@@ -1024,14 +1047,14 @@
       font-family: var(--font-display);
       font-size: 90px;
       line-height: 1;
-      color: rgba(201,168,76,0.08);
+      color: rgba(255,255,255,0.03);
       pointer-events: none;
     }
 
     .testimonial-card:hover {
-      border-color: rgba(201,168,76,0.25);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      transform: translateY(-8px);
+      border-color: rgba(255, 215, 0, 0.3);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4), inset 0 0 40px rgba(255, 215, 0, 0.05);
     }
 
     .stars { display: flex; gap: 3px; margin-bottom: 20px; }
@@ -1295,9 +1318,11 @@
       .btn-gold[style] { padding: 9px 18px !important; font-size: 12px !important; }
 
       /* Hero */
-      #hero { padding: 120px 20px 80px; }
+      #hero { padding: 120px 20px 80px; justify-content: center; text-align: center; }
+      .hero-content { margin-left: 0; }
       .hero-title { font-size: clamp(32px, 7vw, 50px); }
-      .hero-sub { font-size: 16px; max-width: 100%; }
+      .hero-sub { font-size: 16px; max-width: 100%; margin: 0 auto 36px auto; }
+      .hero-actions { justify-content: center; }
       .hero-badge { font-size: 10px; padding: 6px 14px; }
       .hero-trust { flex-wrap: wrap; gap: 12px; justify-content: center; }
       .hero-trust-item { font-size: 11px; }
@@ -1310,8 +1335,9 @@
 
       /* Benefícios */
       #beneficios { padding: 80px 0; }
-      .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
-      .benefit-card { padding: 32px 24px; }
+      .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+      .bento-main { grid-column: span 1; grid-row: span 1; min-height: 400px; }
+      .bento-wide { grid-column: span 1; grid-row: span 1; flex-direction: column; text-align: left; }
 
       /* Demonstração */
       #demonstracao { padding: 80px 0; }
@@ -1379,8 +1405,9 @@
       .stat-num { font-size: 44px; }
 
       /* Benefícios */
-      .benefit-card { padding: 28px 20px; }
-      .benefit-title { font-size: 19px; }
+      .bento-item { padding: 28px 20px; }
+      .bento-title { font-size: 20px; }
+      .bento-main .bento-title { font-size: 26px; }
 
       /* Steps */
       .step-item { grid-template-columns: 52px 1fr; gap: 14px; }
@@ -1425,14 +1452,10 @@
 </head>
 <body>
 
-  <!-- Partículas flutuantes -->
-  <div class="particles-bg" id="particles-bg" aria-hidden="true"></div>
-
-  <!-- Aurora de fundo global -->
-  <div class="aurora" aria-hidden="true">
-    <div class="aurora-blob"></div>
-    <div class="aurora-blob"></div>
-    <div class="aurora-blob"></div>
+  <!-- Fundo Fotográfico Realista -->
+  <div class="bg-photo-parallax" aria-hidden="true">
+    <img src="assets/bg_office_blur_1777506388046.png" alt="" />
+    <div class="bg-overlay"></div>
   </div>
 
   <!-- =============================================
@@ -1450,6 +1473,11 @@
       </div>
     </div>
   </nav>
+
+  <!-- =============================================
+       MAIN CONTENT
+  ============================================= -->
+  <main>
 
   <!-- =============================================
        HERO
@@ -1543,41 +1571,40 @@
         <p class="section-subtitle">Cada detalhe é pensado para gerar resultado real, não apenas para ser bonito.</p>
       </div>
 
-      <div class="benefits-grid">
-        <div class="benefit-card reveal">
-          <div class="card-shine"></div>
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <div class="bento-grid">
+        <!-- Main Bento Box com a foto realista da UI do celular -->
+        <div class="bento-item bento-main reveal">
+          <img src="assets/premium_phone_ui_1777506473010.png" alt="Interface Premium" />
+          <div class="bento-content">
+            <h3 class="bento-title">Presença Premium Instantânea</h3>
+            <p class="bento-text">Passe credibilidade absoluta e confiança imediata. Uma página construída com design hiper-realista vale mais que meses de postagens ignoradas no feed do Instagram.</p>
           </div>
-          <h3 class="benefit-title">Mais clientes</h3>
-          <p class="benefit-text">Sua página aparece para quem está procurando exatamente o que você oferece, 24 horas por dia, 7 dias por semana.</p>
         </div>
 
-        <div class="benefit-card reveal" style="transition-delay:0.1s">
-          <div class="card-shine"></div>
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="bento-item reveal" style="transition-delay:0.1s">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3 class="benefit-title">Presença profissional</h3>
-          <p class="benefit-text">Passe credibilidade e confiança imediata. Uma página bem feita vale mais que mil posts no feed.</p>
+          <h3 class="bento-title">Mais Clientes</h3>
+          <p class="bento-text">Sua página trabalha para você 24h por dia, capturando e convertendo o tráfego que já procura pelo seu serviço.</p>
         </div>
 
-        <div class="benefit-card reveal" style="transition-delay:0.2s">
-          <div class="card-shine"></div>
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        <div class="bento-item reveal" style="transition-delay:0.2s">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
           </div>
-          <h3 class="benefit-title">Aumento nas vendas</h3>
-          <p class="benefit-text">Estrutura estratégica com CTAs poderosos que guiam o visitante direto para o contato ou compra.</p>
+          <h3 class="bento-title">Conversão Direta</h3>
+          <p class="bento-text">Estrutura estratégica desenhada milimetricamente para guiar a atenção do visitante ao botão de WhatsApp.</p>
         </div>
 
-        <div class="benefit-card reveal" style="transition-delay:0.3s">
-          <div class="card-shine"></div>
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <div class="bento-item bento-wide reveal" style="transition-delay:0.3s">
+          <div class="bento-icon" style="margin-bottom:0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <h3 class="benefit-title">Rápida e otimizada</h3>
-          <p class="benefit-text">Carregamento em menos de 2 segundos, otimizada para Google e compatível com todos os dispositivos.</p>
+          <div>
+            <h3 class="bento-title">Velocidade Extrema e SEO</h3>
+            <p class="bento-text">Ninguém espera um site lento carregar. Nossa arquitetura garante tempos de resposta quase instantâneos, ranqueando melhor no Google e não perdendo clientes impacientes.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1600,7 +1627,7 @@
       </div>
 
       <div class="projects-grid">
-        <div class="project-card reveal">
+        <div class="project-card mouse-glow-card reveal">
           <div class="project-thumb thumb-salao"></div>
           <div class="project-info">
             <div class="project-tag">Beleza &amp; Estética</div>
@@ -1609,7 +1636,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal" style="transition-delay:0.1s">
+        <div class="project-card mouse-glow-card reveal" style="transition-delay:0.1s">
           <div class="project-thumb thumb-pet"></div>
           <div class="project-info">
             <div class="project-tag">Pet Shop</div>
@@ -1618,7 +1645,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal" style="transition-delay:0.2s">
+        <div class="project-card mouse-glow-card reveal" style="transition-delay:0.2s">
           <div class="project-thumb thumb-restau"></div>
           <div class="project-info">
             <div class="project-tag">Alimentação</div>
@@ -1683,7 +1710,7 @@
 
       <div class="price-card-wrapper reveal">
         <div class="popular-badge">⚡ Mais escolhido</div>
-        <div class="price-card">
+        <div class="price-card mouse-glow-card">
           <div class="price-header">
             <div class="price-label">Página Profissional Completa</div>
             <div style="font-size:13px;font-weight:500;color:var(--gray-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">a partir de</div>
@@ -1744,7 +1771,7 @@
       </div>
 
       <div class="testimonials-grid">
-        <div class="testimonial-card reveal">
+        <div class="testimonial-card mouse-glow-card reveal">
           <div class="stars" aria-label="5 estrelas">
             <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -1833,6 +1860,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- =============================================
        RODAPÉ
   ============================================= -->
@@ -1875,26 +1904,6 @@
        JAVASCRIPT
   ============================================= -->
   <script>
-    /* --- Partículas flutuantes --- */
-    (function () {
-      const container = document.getElementById('particles-bg');
-      const count = 28;
-      for (let i = 0; i < count; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        const size = Math.random() * 3 + 1;
-        p.style.cssText = `
-          left: ${Math.random() * 100}%;
-          width: ${size}px;
-          height: ${size}px;
-          animation-duration: ${Math.random() * 20 + 15}s;
-          animation-delay: ${Math.random() * 20}s;
-          opacity: ${Math.random() * 0.5 + 0.2};
-        `;
-        container.appendChild(p);
-      }
-    })();
-
     /* --- Navbar scroll --- */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {

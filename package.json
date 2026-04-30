@@ -1,0 +1,13 @@
+{
+  "name": "instagran-app3p-landing-page",
+  "version": "1.0.0",
+  "description": "Instagran App3P - Landing Page Premium",
+  "scripts": {
+    "dev": "vite --open pagina.html",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}
