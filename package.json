@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Instagran App3P - Landing Page Premium",
   "scripts": {
-    "dev": "vite --open pagina.html",
+    "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview"
   },
